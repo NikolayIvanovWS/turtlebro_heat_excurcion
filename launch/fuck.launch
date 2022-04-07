@@ -1,0 +1,38 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="waypoints_data_file" default="$(find turtlebro_patrol)/data/goals.xml" />
+  <arg name="fake_move_base" default="false"/>
+
+  <!--Aruco view service -->
+  <node pkg="turtlebro_heat_excursion" type="aruco_service.py" name="aruco_detect_server" output="screen" required="true" />
+
+  <!--Speech point service -->
+  <node pkg="turtlebro_heat_excursion" type="point_service_view.py" name="excursion_point_service" output="screen" required="true" />
+
+  <!--Fake move base -->
+  <group if="$(arg fake_move_base)">
+    <node pkg="turtlebro_patrol" type="fake_move_base.py" name="fake_move_base" output="screen" required="true"/>
+  </group>
+
+  <!--Navigation -->
+  <group unless="$(arg fake_move_base)">  
+    <include file="$(find turtlebro_navigation)/launch/turtlebro_slam_navigation.launch">
+        <arg name="open_rviz" value="False"/>
+    </include>
+  </group>
+
+ 
+  <!--Patrol Node -->
+  <node pkg="turtlebro_patrol" type="patrol.py" name="turtlebro_patrol" output="screen" required="true">
+    <param name="waypoints_data_file" value="$(arg waypoints_data_file)"/>    
+    <param name="point_callback_service" value="turtlebro_excursion"/>    
+  </node>
+  
+  <!--Heat_sensor Node-->
+  <node pkg="turtlebro_heat_excursion" type="overheat_sensor.py" name="heat_sensor" output="screen">
+    <param name="wait_after_detection" value="8" />
+    <param name="threshold" value="55"/>
+    <param name="heat_pixels_topic" value="amg88xx_pixels"/>
+  </node>
+
+</launch>
