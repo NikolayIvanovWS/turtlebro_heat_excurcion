@@ -50,11 +50,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-   FILES
-   HeatAlert.msg
+#add_message_files(
+#   FILES
+#   HeatAlert.msg
 #   Message2.msg
- )
+# )
 
 ## Generate services in the 'srv' folder
 add_service_files(
@@ -198,13 +198,13 @@ install(PROGRAMS
    src/aruco_service.py
    src/overheat_sensor.py
    src/point_service_view.py
+   src/heat_speaker.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 install(DIRECTORY 
   launch
   data
-  msg
   srv
   src
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}

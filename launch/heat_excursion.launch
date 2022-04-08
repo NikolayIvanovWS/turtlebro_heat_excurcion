@@ -21,18 +21,19 @@
     </include>
   </group>
 
- 
   <!--Patrol Node -->
   <node pkg="turtlebro_patrol" type="patrol.py" name="turtlebro_patrol" output="screen" required="true">
     <param name="waypoints_data_file" value="$(arg waypoints_data_file)"/>    
     <param name="point_callback_service" value="turtlebro_heat_excursion"/>    
   </node>
   
-  <!--Heat_sensor Node-->
+  <!--Heat sensor Node-->
   <node pkg="turtlebro_heat_excursion" type="overheat_sensor.py" name="heat_sensor" output="screen">
-    <param name="wait_after_detection" value="8" />
     <param name="threshold" value="55"/>
     <param name="heat_pixels_topic" value="amg88xx_pixels"/>
   </node>
 
+  <!--Heat speaker Node -->
+  <node pkg="turtlebro_heat_excursion" type="heat_speaker.py" name="heat_speaker" output="screen" required="true" />
+ 
 </launch>
