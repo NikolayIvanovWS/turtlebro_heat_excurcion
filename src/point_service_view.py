@@ -2,8 +2,33 @@
 
 from turtlebro_patrol.srv import PatrolPointCallback, PatrolPointCallbackRequest, PatrolPointCallbackResponse 
 from turtlebro_heat_excursion.srv import ArucoDetect, ArucoDetectResponse, ArucoDetectRequest
+from rospy.topics import Publisher
+from std_msgs.msg import Float32MultiArray, String, Bool
 import rospy
 import subprocess
+import numpy as np
+import subprocess
+import math
+
+
+def __init__(self):
+        self.current_max_temp = 0
+        rospy.Subscriber('limit_switch', Bool, self.callback)
+        self._heat_sub = rospy.Subscriber('amg88xx_pixels', Float32MultiArray, self.heat_callback)
+
+def heat_callback(self, heat_msg):
+    rospy.loginfo('HeatSensor: heat pixels message received')
+    self.current_max_temp = np.max(heat_msg.data)
+    rospy.loginfo('Current tempurature: %s', self.current_max_temp)
+
+def callback (self, msg):
+    if msg.data:
+        temp_2 = int((self.current_max_temp-math.floor(self.current_max_temp))* 10.0)
+        temp_1 = int(self.current_max_temp - temp_2/10.0)
+        self.say_text("Ваша температура: " + str(temp_1) + " и " + str(temp_2))
+
+    else:
+        pass
 
 def say_text(text):    
     rospy.loginfo(f"Start speech: {text}")

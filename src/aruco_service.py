@@ -12,7 +12,7 @@ class ArucoDetectService():
     def __init__(self) -> None:
         self.image_msg = None
         self.service_server = rospy.Service('aruco_detect', ArucoDetect, self.service_request)   
-        sub = rospy.Subscriber('/front_camera/compressed', CompressedImage, self.image_cb)
+        sub = rospy.Subscriber('/front_camera/image_raw/compressed', CompressedImage, self.image_cb)
 
         self.bridge = CvBridge()
         self.arucoDict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_100)

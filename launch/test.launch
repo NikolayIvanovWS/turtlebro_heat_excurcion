@@ -25,7 +25,7 @@
   <!--Patrol Node -->
   <node pkg="turtlebro_patrol" type="patrol.py" name="turtlebro_patrol" output="screen" required="true">
     <param name="waypoints_data_file" value="$(arg waypoints_data_file)"/>    
-    <param name="point_callback_service" value="turtlebro_excursion"/>    
+    <param name="point_callback_service" value="turtlebro_heat_excursion"/>    
   </node>
   
   <!--Heat_sensor Node-->
