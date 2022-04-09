@@ -3,8 +3,11 @@
 ### Required equipment
 
 TurtleBro
+
 AMG88xx thermal sensor
+
 Limit switch
+
 Audio speakers
 
 ### Description
@@ -115,13 +118,13 @@ After lauching you can see next topics:
 
 Before starting the excursion, you need to publish the "start" command to the topic ```/excurion_control```. After that, you need to press the limit switch on the robot - the robot will measure the temperature and speak it, then the excursion will start.
 
-The excursion must be controlled using the topic ```/excurion_control``` publish next command:
-```
-start
-pause
-resume
-home
-stop
-```
+The control of the excursion is performed by sending messages of the std_msgs/String type to the topic ```/excurion_control```
+
+Accepted commands:
+1. start - starts the excursion cycle or switch robot to next goal
+2. pause - pauses excursion at any point
+3. resume - resume excursion at any point
+4. home - go to home position
+5. stop - stops excursion and executing the package
 
 Overheating data is published in the topic ```/heat_sensor_output``` (the overheating ```threshold``` parameter is set to .launch file)
