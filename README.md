@@ -1,5 +1,4 @@
-# Manual for 
-turtlebro_heat_excurcion
+# Manual for turtlebro_heat_excurcion
 
 ### Required equipment
 
@@ -77,6 +76,11 @@ git clone https://github.com/voltbro/turtlebro_patrol
 cd ..
 catkin_make --pkg turtlebro_patrol
 ```
+Also, you need to install system package ```festvox-ru```:
+
+```
+sudo apt install festvox-ru
+```
 
 After that, you can install turtlebro_heat_excurcion package:
 
@@ -95,9 +99,29 @@ Before launch you have to clear data from stm32 by sending reset command:
 ```
 rosservice call /reset
 ```
-
+To launch the package, use the following command:
 ```
 roslaunch turtlebro_heat_excursion heat_excursion.launch
 ```
 
+### Using package
 
+After lauching you can see next topics:
+
+```
+/excurion_control
+/heat_sensor_output
+```
+
+Before starting the excursion, you need to publish the "start" command to the topic ```/excurion_control```. After that, you need to press the limit switch on the robot - the robot will measure the temperature and speak it, then the excursion will start.
+
+The excursion must be controlled using the topic ```/excurion_control``` publish next command:
+```
+start
+pause
+resume
+home
+stop
+```
+
+Overheating data is published in the topic ```/heat_sensor_output``` (the overheating ```threshold``` parameter is set to .launch file)
