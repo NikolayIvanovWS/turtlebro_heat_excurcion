@@ -1,4 +1,12 @@
-# turtlebro_heat_excurcion
+# Manual for 
+turtlebro_heat_excurcion
+
+### Required equipment
+
+TurtleBro
+AMG88xx thermal sensor
+Limit switch
+Audio speakers
 
 ### Description
 
@@ -42,6 +50,7 @@ Limit switch 'VCC' pin must be connected to '5V' pin on the same connector marke
 ### Connecting audio speakers
 
 To mount the speaker, install the upper mounting pad on the robot. Next, install the speaker according to the configuration. Connect the speaker as follows:
+
 The USB cable of the speaker -> to the USB port of the Raspberry Pi
 Speaker Audio Cable -> to Raspberry Pi Audio Port
 
@@ -56,7 +65,7 @@ Install Arduino IDE https://www.arduino.cc/en/main/software
 Connect built-in turtlebro`s Arduino Mega via USB, and upload script to it.
 (or upload remotely)
 
-After uploading you must see topics "amg88xx_pixels" and "/limit_switch" in list of ros topics.
+After uploading you must see topics "/amg88xx_pixels" and "/limit_switch" in list of ros topics.
 
 ### Package installation
 
