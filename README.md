@@ -54,6 +54,7 @@ Limit switch 'VCC' pin must be connected to '5V' pin on the same connector marke
 To mount the speaker, install the upper mounting pad on the robot. Next, install the speaker according to the configuration. Connect the speaker as follows:
 
 The USB cable of the speaker -> to the USB port of the Raspberry Pi
+
 Speaker Audio Cable -> to Raspberry Pi Audio Port
 
 ### How to install on Arduino
