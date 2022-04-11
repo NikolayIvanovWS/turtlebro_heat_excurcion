@@ -1,4 +1,4 @@
-# Manual for turtlebro_heat_excurcion
+# Manual for turtlebro_heat_excursion
 
 ### Required equipment
 
@@ -85,7 +85,7 @@ Also, you need to install system package ```festvox-ru```:
 sudo apt install festvox-ru
 ```
 
-After that, you can install turtlebro_heat_excurcion package:
+After that, you can install turtlebro_heat_excursion package:
 
 ```
 cd ~/catkin_ws/src
@@ -106,6 +106,7 @@ To launch the package, use the following command:
 ```
 roslaunch turtlebro_heat_excursion heat_excursion.launch
 ```
+After installation, please, reboot your robot ! 
 
 ### Using package
 
