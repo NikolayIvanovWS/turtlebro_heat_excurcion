@@ -90,7 +90,7 @@ After that, you can install turtlebro_heat_excursion package:
 
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/NikolayIvanovWS/turtlebro_heat_excursion.git
+git clone https://github.com/voltbro/turtlebro_heat_excursion.git
 
 cd ~/catkin_ws
 catkin_make --pkg turtlebro_heat_excursion
