@@ -114,7 +114,7 @@ After installation, please, reboot your robot !
 After lauching you can see next topics:
 
 ```
-/excurion_control
+/excursion_control
 /heat_sensor_output
 ```
 
